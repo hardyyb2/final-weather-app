@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title></title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            font-family: 'Yanone Kaffeesatz' !important;
+        }
+
+        .container {
+            width: 1200px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        button {
+            width: 120px;
+            height: 120px;
+            border-radius: 50% !important;
+            font-size: 30px !important;
+            text-align: center;
+            font-family: 'Poppins';
+            position: relative;
+            top: -60px;
+            z-index: 99;
+            background: blueviolet !important;
+            border: none !important;
+            outline: none !important;
+        }
+
+        .card {
+            width: 100%;
+            height: 580px;
+            box-shadow: 2px 2px 12px 2px rgba(0, 0, 0, 0.2),
+                4px 4px 14px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card .card-img-top {
+            width: 100%;
+            height: 70%;
+            display: flex;
+        }
+        .card .card-img-top1{
+            width:50%;
+            height:100%;
+        }
+
+        .card .card-body {
+            height: 30%;
+            padding: 0;
+        }
+
+        .card .card-img-overlay {
+            width: 100%;
+            height: 70%;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .card .card-img-overlay .temp {
+            font-size: 120px;
+            font-family: 'Poppinsbold', sans-serif;
+        }
+
+        .card .card-img-overlay .city {
+            position: relative;
+            left: -20px;
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: 'Poppinslight';
+        }
+
+        .card .card-body .row1 {
+            height: 100%;
+            width: 100%;
+            display: flex;
+        }
+
+        .card .card-body .row1 .col1 {
+            width: 20%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.08);
+            font-size: 15px;
+            font-family: 'Yanone Kaffeesatz' !important;
+        }
+
+        .card .card-body .row1 .col1 span {
+            height: 33.33%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card .card-body .row1 .col1 span:nth-child(2),
+        .card .card-body .row1 .col1 span:nth-child(3) {
+            color: blueviolet;
+            font-size: 28px;
+        }
+
+        .activecol1 {
+            background: white !important;
+        }
+
+        .extended-info {
+            width: 100%;
+            height: 400px;
+        }
+
+        .extended-info .row2-heading {
+            width: 100%;
+            text-align: center;
+            font-size: 30px;
+            background: blueviolet;
+            color: white;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            ;
+        }
+
+
+        .extended-info .row2 {
+            width: 100%;
+            display: flex;
+
+        }
+
+        .extended-info .row2 .col2 {
+            width: calc(100% / 7);
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        .extended-info .row2 .col2 span:first-child {
+            font-size: 20px;
+            padding-bottom: 30px;
+        }
+
+        .extended-info .row2 .col2 span:nth-child(2) {
+            color: blueviolet;
+            font-size: 28px;
+        }
+
+        .chart-container {
+            margin-bottom: 40px;
+            background: rgba(0, 0, 0, 0.08);
+
+        }
+
+        hr {
+            position: relative;
+            top: -40px;
+            margin: 0;
+            margin-bottom: 30px;
+            height: 10px;
+        }
+
+        .chart-img {
+            position: relative;
+            left: 40%;
+            top: -15%;
+            width: 150px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/poppins" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-img-top">
+                <img class="card-img-top1" src="img/frogs/sunny.jpg" alt="Card image">
+                <img class="card-img-top1" src="img/frogs/sunny.jpg" alt="Card image">
+            </div>
+            <div class="card-img-overlay"><span class="temp">..</span><br><span class="city">Fetching..</span>
+            </div>
+            <div class="card-body">
+                <div class="row1">
+                    <div class="col1">
+                        <span>Rain</span>
+                        <span>Fetching..</span>
+                    </div>
+                    <div class="col1">
+                        <span>Humidity</span>
+                        <span>Fetching..</span>
+                    </div>
+                    <div class="col1 activecol1">
+                        <span>Temp.</span>
+                        <span>Fetching..</span>
+                    </div>
+                    <div class="col1">
+                        <span>Wind</span>
+                        <span>Fetching..</span>
+                    </div>
+                    <div class="col1">
+                        <span>Visibility</span>
+                        <span>Fetching..</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="extended-info">
+            <div class="row2-heading">Daily Average Temp.</div>
+            <div class="row2">
+                <div class='col2'><span class="col2-date">Today</span><span class="temp2">Fetching..</span></div>
+                <div class='col2'><span class="col2-date"></span><span class="temp2">Fetching..</span> </div>
+                <div class='col2'><span class="col2-date"></span> <span class="temp2">Fetching..</span></div>
+                <div class='col2'><span class="col2-date"></span><span class="temp2">Fetching..</span></div>
+                <div class='col2'><span class="col2-date"></span> <span class="temp2">Fetching..</span></div>
+                <div class='col2'><span class="col2-date"></span> <span class="temp2">Fetching..</span></div>
+                <div class='col2'><span class="col2-date"></span> <span class="temp2">Fetching..</span></div>
+            </div>
+            <div class="row2-heading" style="padding-bottom:40px;">Hourly Temperatures</div>
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
+            <hr class="row2-heading">
+
+        </div>
+        <button type="button " class="btn btn-primary">More
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+    <script src="js/reverse.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+        $(`.extended-info`).hide();
+        $(`button`).click(() => {
+            $(`.extended-info`).slideToggle();
+            $(`button`).hide(500);
+        })
+        console.log($(`.extended-info > .row2-heading:eq(1)`))
+    </script>
+</body>
+
+</html>
+<!--press Shift + Alt + f  to beautify-->

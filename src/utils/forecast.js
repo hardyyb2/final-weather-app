@@ -5,7 +5,7 @@ const foreCast = (latitude, longitude, callback) => {
     request({
         url,
         json: true
-    }, (error, {body}) => {
+    }, (error, {body}={}) => {
         if (error) {
             callback(`Couldnt connect to web services.`, undefined);
         } else if (body.error) {
